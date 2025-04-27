@@ -785,79 +785,79 @@ i.icon {
 }
 
 i.star-solid {
-    background-image: url("/asset/image/star-solid.svg");
+    background-image: url("../image/star-solid.svg");
 }
 
 i.arrows-left-right-to-line-solid {
-    background: url("/asset/image/arrows-left-right-to-line-solid.svg");
+    background: url("../image/arrows-left-right-to-line-solid.svg");
 }
 
 i.bolt-solid {
-    background-image: url("/asset/image/bolt-solid.svg");
+    background-image: url("../image/bolt-solid.svg");
 }
 
 i.book-solid {
-    background-image: url("/asset/image/book-solid.svg");
+    background-image: url("../image/book-solid.svg");
 }
 
 i.calendar-check-solid {
-    background-image: url("/asset/image/calendar-check-solid.svg");
+    background-image: url("../image/calendar-check-solid.svg");
 }
 
 i.chart-simple-solid {
-    background-image: url("/asset/image/chart-simple-solid.svg");
+    background-image: url("../image/chart-simple-solid.svg");
 }
 
 i.feather-pointed-solid {
-    background-image: url("/asset/image/feather-pointed-solid.svg");
+    background-image: url("../image/feather-pointed-solid.svg");
 }
 
 i.fire-solid {
-    background-image: url("/asset/image/fire-solid.svg");
+    background-image: url("../image/fire-solid.svg");
 }
 
 i.flask-solid {
-    background-image: url("/asset/image/flask-solid.svg");
+    background-image: url("../image/flask-solid.svg");
 }
 
 i.gem-solid {
-    background-image: url("/asset/image/gem-solid.svg");
+    background-image: url("../image/gem-solid.svg");
 }
 
 i.lightbulb-solid {
-    background-image: url("/asset/image/lightbulb-solid.svg");
+    background-image: url("../image/lightbulb-solid.svg");
 }
 
 i.medal-solid {
-    background-image: url("/asset/image/medal-solid.svg");
+    background-image: url("../image/medal-solid.svg");
 }
 
 i.ring-solid {
-    background-image: url("/asset/image/ring-solid.svg");
+    background-image: url("../image/ring-solid.svg");
 }
 
 i.star-solid {
-    background-image: url("/asset/image/star-solid.svg");
+    background-image: url("../image/star-solid.svg");
 }
 
 i.arrows-rotate-solid {
-    background-image: url("/asset/image/arrows-rotate-solid.svg");
+    background-image: url("../image/arrows-rotate-solid.svg");
 }
 
 i.wand-magic-sparkles-solid {
-    background-image: url("/asset/image/wand-magic-sparkles-solid.svg");
+    background-image: url("../image/wand-magic-sparkles-solid.svg");
 }
 
 i.bullseye-solid {
-    background-image: url("/asset/image/bullseye-solid.svg");
+    background-image: url("../image/bullseye-solid.svg");
 }
 
 i.person-solid {
-    background-image: url("/asset/image/person-solid.svg");
+    background-image: url("../image/person-solid.svg");
 }
 
 i.shield-halved-solid {
-    background-image: url("/asset/image/shield-halved-solid.svg");
+    background-image: url("../image/shield-halved-solid.svg");
 }
 
 /* **********************************************************************************************************************
@@ -905,7 +905,7 @@ i.badge:hover:after {
 
 
 i.lopec_badge_connie {
-    background-image: url("/asset/image/lopec_badge_01.png");
+    background-image: url("../image/lopec_badge_01.png");
 }
 
 i.lopec_badge_connie:hover:after {
@@ -913,7 +913,7 @@ i.lopec_badge_connie:hover:after {
 }
 
 i.lopec_badge_blackCow {
-    background-image: url("/asset/image/lopec_badge_03.png");
+    background-image: url("../image/lopec_badge_03.png");
 }
 
 i.lopec_badge_blackCow:hover:after {
@@ -921,7 +921,7 @@ i.lopec_badge_blackCow:hover:after {
 }
 
 i.lopec_badge_doggie {
-    background-image: url("/asset/image/lopec_badge_04.png");
+    background-image: url("../image/lopec_badge_04.png");
 }
 
 i.lopec_badge_doggie:hover:after {
@@ -929,7 +929,7 @@ i.lopec_badge_doggie:hover:after {
 }
 
 i.lopec_badge_mokoko {
-    background-image: url("/asset/image/lopec_badge_05.png");
+    background-image: url("../image/lopec_badge_05.png");
 }
 
 i.lopec_badge_mokoko:hover:after {
@@ -937,7 +937,7 @@ i.lopec_badge_mokoko:hover:after {
 }
 
 i.lopec_badge_pinekoko {
-    background-image: url("/asset/image/lopec_badge_06.png");
+    background-image: url("../image/lopec_badge_06.png");
 }
 
 i.lopec_badge_pinekoko:hover:after {
@@ -945,7 +945,7 @@ i.lopec_badge_pinekoko:hover:after {
 }
 
 i.lopec_badge_penguin {
-    background-image: url("/asset/image/lopec_badge_02.png");
+    background-image: url("../image/lopec_badge_02.png");
 }
 
 i.lopec_badge_penguin:hover:after {

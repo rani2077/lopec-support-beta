@@ -75,7 +75,7 @@ header{
 
 .sc-header .logo-group .link-site {
     display: block;
-    background: url("/asset/image/header-logo.png") center center no-repeat;
+    background: url("../image/header-logo.png") center center no-repeat;
     background-size: contain;
     width: 100%;
     height: 100%;
