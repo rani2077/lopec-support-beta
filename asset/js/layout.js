@@ -115,7 +115,7 @@ function scHeaderCreate() {
                         </div>
                         <div class="group-search">
                             <span class="recent-close"><span class="blind">검색화면 나가기 버튼</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m12.718 4.707-1.413-1.415L2.585 12l8.72 8.707 1.413-1.415L6.417 13H20v-2H6.416l6.302-6.293z"/></svg></span>
-                            <form action="/mobile/search/search.html" class="search-area search-page on">
+                            <form action="/lopec-support-beta/mobile/search/search.html" class="search-area search-page on">
                                 <input id="headerInput" autocomplete="off" name="headerCharacterName" class="header-input character-name-search" type="text" value="" placeholder="캐릭터 검색">
                                 <button class="search-btn"></button>
                             </form>
@@ -163,7 +163,7 @@ function scHeaderCreate() {
                         </h1>
                     </div>
                     <div class="group-search">
-                        <form action="/search/search.html" class="search-area search-page on">
+                        <form action="/lopec-support-beta/search/search.html" class="search-area search-page on">
                             <input id="headerInput" autocomplete="off" name="headerCharacterName" class="header-input character-name-search" type="text" value="" placeholder="캐릭터 검색">
                             <button class="search-btn"></button>
                         </form>
@@ -272,7 +272,7 @@ function recentBookmark() {
 
         recentNameBox += `
             <div class="name-box" data-sort="recent">
-                <a href="${mobilePath}/search/search.html?headerCharacterName=${recentNameArry}" class="name">${recentNameArry}</a>
+                <a href="/lopec-support-beta${mobilePath}/search/search.html?headerCharacterName=${recentNameArry}" class="name">${recentNameArry}</a>
                 <em class="del remove"></em>
             </div>`;
     })
@@ -281,7 +281,7 @@ function recentBookmark() {
 
         bookmarkNameBox += `
         <div class="name-box" data-sort="bookmark">
-            <a href="${mobilePath}/search/search.html?headerCharacterName=${bookmarkArry}" class="name">${bookmarkArry}</a>
+            <a href="/lopec-support-beta${mobilePath}/search/search.html?headerCharacterName=${bookmarkArry}" class="name">${bookmarkArry}</a>
             <em class="star remove">☆</em>
         </div>`;
     })
