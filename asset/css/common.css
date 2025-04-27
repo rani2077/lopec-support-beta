@@ -1,0 +1,1648 @@
+body {
+    /* background: #dcdcdc; */
+    min-width: 1300px;
+}
+
+/* 툴팁 */
+.tooltip {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 5px;
+    white-space: nowrap;
+    font-size: inherit;
+}
+
+/* 그림자 */
+.shadow {
+    box-shadow: 0px 2px 10px 0px rgb(221, 221, 221);
+    border-radius: 5px;
+}
+
+/* 테두리 곡선 */
+.radius {
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+
+/* ir용 글자 숨김처리 */
+.blind {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+
+
+/* 툴팁용 글자 css 초기화 */
+font {
+    font-size: inherit;
+    color: inherit;
+}
+
+
+/* wrapper기본설정 */
+.wrapper {
+    width: 1300px;
+    margin: 0 auto;
+    /* position: relative; */
+    margin-bottom: 220px;
+
+}
+
+
+
+
+
+
+/* 악세서리 및 장비칸 배경 색상 */
+.ultra-background {
+    background: linear-gradient(135deg, #3d3325, #dcc999);
+}
+
+.rare-background {
+    background: linear-gradient(135deg, #341a09, #a24006);
+}
+
+.common-background {
+    background: linear-gradient(135deg, #362003, #9e5f04);
+}
+
+.hero-background {
+    background: linear-gradient(135deg, #27013d, #6e00aa)
+}
+
+
+/* 악세서리 및 장비 품질(하단) 바 색상 */
+.progress {
+    background: #888;
+}
+
+.common-progressbar {
+    background: #a80000
+}
+
+.uncommon-progressbar {
+    background: #ffd000ce
+}
+
+.rare-progressbar {
+    background: #00a808
+}
+
+.epic-progressbar {
+    background: #4671ff
+}
+
+.legendary-progressbar {
+    background: #7a13be
+}
+
+.relics-progressbar {
+    background: #d63f24
+}
+
+.mythic-progressbar {
+    background: #ecc515
+}
+
+
+
+/* 각인 아이콘 is */
+.engraving-ico {
+    background: url("/asset/image/img_engrave_icon.png");
+    background-repeat: no-repeat;
+    background-position-x: 1px;
+    margin-right: 3px;
+}
+
+.engraving-ico.blue {
+    background-position-x: 1px;
+}
+
+.engraving-ico.red {
+    background-position-x: -27px;
+}
+
+.engraving-ico.yellow {
+    background-position-x: -57px
+}
+
+.engraving-ico.puple {
+    background-position-x: -86px
+}
+
+.engraving-ico.orange {
+    background-position-x: -115px
+}
+
+.engraving-ico.unknown {
+    display: none;
+}
+
+
+
+
+
+/* @media (max-width:1027px) {
+    .wrapper {
+        width: initial;
+    }
+} */
+
+
+/* 악세서리영역 상중하 색상 */
+.quality.high,
+.quality.DuelPhigh,
+.quality.Duelhigh,
+.quality.DuelLhigh,
+.quality.SpPhigh,
+.quality.SpMhigh,
+.quality.SpLhigh,
+.quality.Sphigh,
+.quality.zhigh,
+.quality.Phigh,
+.quality.Lhigh,
+.quality.Fhigh {
+    background: #ecc515;
+}
+
+.quality.middle,
+.quality.DuelPmiddle,
+.quality.Duelmiddle,
+.quality.DuelLmiddle,
+.quality.SpPmiddle,
+.quality.SpMmiddle,
+.quality.SpLmiddle,
+.quality.Sphigh,
+.quality.zmiddle,
+.quality.Spmiddle,
+.quality.Pmiddle,
+.quality.Lmiddle,
+.quality.Fmiddle {
+    background: rgb(122, 19, 190);
+}
+
+.quality.low,
+.quality.DuelPlow,
+.quality.Duellow,
+.quality.DuelLlow,
+.quality.SpPlow,
+.quality.SpMlow,
+.quality.SpLlow,
+.quality.Splow,
+.quality.zlow,
+.quality.Splow,
+.quality.Plow,
+.quality.Llow,
+.quality.Flow {
+    background: #4671ff;
+}
+
+.quality {
+    background: rgb(136, 136, 136);
+}
+
+
+
+/* **********************************************************************************************************************
+* description	    : 	스켈레톤 애니메이션 배경색상
+*********************************************************************************************************************** */
+.skeleton {
+    /* background: #ccc; */
+
+    background: #eee;
+    background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+    border-radius: 5px;
+    background-size: 200% 100%;
+    animation: 1.5s shine linear infinite;
+
+    img {
+        display: none;
+    }
+}
+
+@keyframes shine {
+    to {
+        background-position-x: -200%;
+    }
+}
+
+
+
+
+/* **********************************************************************************************************************
+* description	    : 	물음표 아이콘
+*********************************************************************************************************************** */
+.question {
+    background: url("../image/question-ico.png") center no-repeat;
+    background-size: cover;
+    width: 15px;
+    height: 15px;
+    display: block;
+    position: relative;
+    overflow: visible;
+}
+
+.question:hover {
+    z-index: 2;
+}
+
+.question:hover .detail {
+    display: block;
+    font-size: 13px;
+    z-index: 1;
+}
+
+.detail {
+    white-space: nowrap;
+    display: none;
+    position: absolute;
+    line-height: 20px;
+    top: 10px;
+    left: 10px;
+    /* background: #2f2f2f; */
+    background: rgba(85, 85, 85, 0.9);
+    color: #ffffff;
+    border-radius: 8px;
+    padding: 5px 8px;
+
+}
+
+
+
+
+
+/* **********************************************************************************************************************
+* description	    : 	검색 아이콘
+*********************************************************************************************************************** */
+.search-btn {
+    position: relative;
+    border: none;
+    background: #fff;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.search-btn::after {
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    content: '';
+    width: 70%;
+    height: 70%;
+    display: block;
+    background: url("../image/search-ico.png") no-repeat;
+    background-size: contain;
+}
+
+
+
+
+
+
+/* **********************************************************************************************************************
+* description	    : 	다크모드 설정 모음
+*********************************************************************************************************************** */
+.dark-mode {
+    background: #121212;
+}
+
+.dark-mode .shadow {
+    box-shadow: none;
+}
+
+.dark-mode header,
+.dark-mode .sc-lopec-click:after,
+.dark-mode .sc-lopec-click .group-user-data,
+.dark-mode .sc-lopec-click .blob {
+    background: #1d1e1f;
+    color: #fff;
+}
+
+.dark-mode .sc-lopec-click.on:after {
+    background: #1d1e1f;
+}
+
+.dark-mode .sc-lopec-click:after,
+.dark-mode .sc-lopec-click .blob {
+    background: #ebf7fc;
+}
+
+body {
+    transition: background 300ms, color 300ms;
+}
+
+html.dark-mode .sc-info .tag-list,
+.dark-mode .sc-header .search-area.on .header-input,
+.dark-mode .sc-header .search-area.on .search-btn,
+.dark-mode .sc-info .group-system .engraving-area,
+.dark-mode .sc-info .group-info .engraving-area,
+.dark-mode .sc-info .group-equip .gem-area,
+.dark-mode .sc-info .armor-wrap>div,
+.dark-mode .sc-info .ark-area,
+.dark-mode .sc-notice,
+.dark-mode .sc-notice .group-notice .name-box,
+.dark-mode .sc-rank .group-rank,
+.dark-mode footer,
+.dark-mode .group-recent,
+.dark-mode .group-recent .name-area .sort.on,
+.dark-mode .sc-expedition .group-server,
+.dark-mode .sc-lopec-click .group-simple .result-area,
+.dark-mode .sc-lopec-click .search-area input,
+.dark-mode .sc-lopec-click .search-area span.btn,
+.dark-mode .group-user-data .armory-item,
+.dark-mode .group-user-data .accessory-item,
+.dark-mode .group-user-data .gem-item,
+.dark-mode .group-user-data .engraving-item {
+    background: #2f2f2f;
+    color: #fff;
+}
+
+.dark-mode .sc-lopec-click .group-simple .search-area input:focus,
+.dark-mode .sc-lopec-click .search-area span.btn,
+.dark-mode .group-user-data .armory-item,
+.dark-mode .group-user-data .accessory-item,
+.dark-mode .group-user-data .gem-item,
+.dark-mode .group-user-data .engraving-item {
+    border: 1px solid #404040;
+}
+
+.dark-mode .sc-lopec-click .group-simple .result-item {
+    border-bottom: 1px solid #404040;
+}
+
+.dark-mode .group-recent .name-area .sort,
+.dark-mode .group-recent .memo .name-box:after,
+.dark-mode .sc-info .group-equip .simple-option-area,
+.dark-mode .group-equip .simple-option-area .extend-list {
+    background: #404040;
+    color: #fff;
+}
+
+
+.dark-mode .notice,
+.dark-mode .temp-text,
+.dark-mode .sc-profile,
+.dark-mode .sc-nav,
+.dark-mode .sc-lopec-click .category {
+    color: #fff;
+}
+
+.dark-mode .sc-expedition .expedition-area .expedition-list .info-box .character-level,
+.dark-mode .group-recent .memo .name-box .del:before,
+.dark-mode .group-recent .memo .name-box .del:after,
+.dark-mode .sc-lopec-click .hint {
+    color: #bfbfbf;
+}
+
+.dark-mode .sc-nav {
+    border-bottom: 1px solid #404040;
+}
+
+.dark-mode .sc-info .text-box .elixir-wrap .elixir,
+.dark-mode .group-recent .memo .name-box:hover,
+.dark-mode .sc-lopec-click .group-simple .result-item:hover:not(.sort) {
+    background: #15181d;
+}
+
+.dark-mode select:not(.progress),
+.dark-mode .spin-wrapper .up,
+.dark-mode .spin-wrapper .down,
+.dark-mode .sc-info .accessory-area .number-box input.progress,
+.dark-mode .group-equip .number-box .option-wrap .option {
+    color: #fff;
+    background: #15181d;
+    border: 1px solid rgb(87, 82, 82)
+}
+
+.dark-mode .sc-header .logo-group .link-site {
+    background: url("../image/dark-mode-header-logo.png") center center / contain no-repeat;
+
+}
+
+.dark-mode .sc-container .group-logo .link-logo {
+    background: url("../image/dark-mode-logo.png") center center / contain no-repeat;
+}
+
+
+/* .dark-mode .sc-info .group-info .spec-area .question{
+    background: url('../image/dark-mode-question-ico.png') center center / cover no-repeat;
+} */
+
+
+/* 신 다크모드 버튼 */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+*:focus {
+    outline: none;
+}
+
+
+#app-cover {
+    display: table;
+    width: 600px;
+    margin: 80px auto;
+    counter-reset: button-counter;
+}
+
+.row {
+    display: table-row;
+}
+
+.toggle-button-cover {
+    display: table-cell;
+    position: relative;
+    width: 200px;
+    height: 140px;
+    box-sizing: border-box;
+}
+
+.button-cover {
+    height: 100px;
+    margin: 20px;
+    background-color: #fff;
+    box-shadow: 0 10px 20px -8px #c5d6d6;
+    border-radius: 4px;
+}
+
+.button-cover:before {
+    counter-increment: button-counter;
+    content: counter(button-counter);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: #d7e3e3;
+    font-size: 12px;
+    line-height: 1;
+    padding: 5px;
+}
+
+.button-cover,
+.knobs,
+.layer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.button {
+    position: relative;
+    top: 0;
+    width: 74px;
+    height: 36px;
+    overflow: hidden;
+}
+
+.button.r,
+.button.r .layer {
+    border-radius: 100px;
+}
+
+.button.b2 {
+    border-radius: 2px;
+}
+
+.checkbox {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.knobs {
+    z-index: 2;
+}
+
+.layer {
+    width: 100%;
+    background-color: #ebf7fc;
+    transition: 0.3s ease all;
+    z-index: 1;
+}
+
+
+
+#button-17 .knobs:before,
+#button-17 .knobs span {
+    content: "Light";
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 28px;
+    height: 28px;
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* padding: 9px 4px; */
+}
+
+#button-17 .knobs:before {
+    transition: 0.3s ease all, left 0.5s cubic-bezier(0.18, 0.89, 0.35, 1.15);
+    z-index: 2;
+}
+
+#button-17 .knobs span {
+    background-color: #03a9f4;
+    border-radius: 2px;
+    transition: 0.3s ease all, left 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15);
+    z-index: 1;
+}
+
+#button-17 .checkbox:checked+.knobs:before {
+    content: "Dark";
+    left: 42px;
+}
+
+#button-17 .checkbox:checked+.knobs span {
+    left: 42px;
+    background-color: #03DAC5;
+}
+
+#button-17 .checkbox:checked~.layer {
+    background-color: #333639;
+}
+
+
+
+
+
+/* **********************************************************************************************************************
+* description	    : 	스크롤바 디자인
+*********************************************************************************************************************** */
+.scrollbar {
+    overflow-y: scroll;
+    width: 100%;
+    height: 100%;
+}
+
+.scrollbar::-webkit-scrollbar {
+    width: 5px;
+    /* 스크롤바 너비 */
+}
+
+.scrollbar::-webkit-scrollbar-track {
+    /* background: #f1f1f1; */
+    /* 트랙 색상 */
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+    background: #888;
+    /* 스크롤바 손잡이 색상 */
+    border-radius: 5px;
+    /* 손잡이 둥글게 */
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    /* 손잡이 호버 시 색상 */
+}
+
+
+/* **********************************************************************************************************************
+* description	    : 	input type=number를 쉽게 입력하게 하는 넘패드
+*********************************************************************************************************************** */
+.numeric-keyboard-layout {
+    position: absolute;
+    width: 150px;
+    height: auto;
+    border: 5px solid #C4CCD8;
+    border-radius: 5px;
+    z-index: 100;
+    /* Ensure the numpad is on top */
+}
+
+.numeric-keyboard-layout::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #C4CCD8;
+}
+
+@supports (display: grid) {
+    .list-num {
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, 35px);
+    }
+
+    .list-num>li {
+        display: inline-block;
+    }
+}
+
+@supports not (display: grid) {
+    .list-num {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    .list-num>li {
+        float: left;
+        width: calc(100% / 3);
+        height: 56px;
+    }
+}
+
+.list-num {
+    margin: 0;
+    padding: 0;
+}
+
+.list-num>li {
+    background-color: #fff;
+}
+
+.list-num>li:not(:last-child) {
+    border-right: 1px solid #E5E5E5;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.list-num>li:last-child {
+    border-right: 1px solid #E5E5E5;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.btn-num {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border-color: transparent;
+    transition: color 200ms ease-out, background-color 250ms linear;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.btn-num:hover {
+    background-color: #dcdcdc;
+    /* color: #4D4D4D; */
+    transition: color 200ms ease-in, background-color 250ms linear;
+}
+
+.btn-none {
+    background-color: lighten(#C4CCD8, 15%);
+}
+
+
+
+/* **********************************************************************************************************************
+* description	    : 	select의 드롭박스를 보다 쉽게 전환 가능하게 하는 스핀버튼
+*********************************************************************************************************************** */
+.spin-wrapper {
+    display: inline-block;
+    padding-right: 15px;
+    position: relative;
+    border: 1px solid #767676;
+    border-radius: 3px;
+}
+
+.spin-wrapper select {
+    border: none;
+}
+
+.spin-wrapper .up,
+.spin-wrapper .down {
+    width: 15px;
+    height: 50%;
+    position: absolute;
+    right: 0;
+    background: #fcfcfc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spin-wrapper .up:hover:after,
+.spin-wrapper .down:hover:after {
+    background: #636363;
+}
+
+
+.spin-wrapper .up {
+    top: 0;
+    padding: 0px 2.5px;
+    padding-bottom: 2px;
+    padding-top: 1.5px;
+}
+
+.spin-wrapper .down {
+    bottom: 0;
+    padding: 0px 2.5px;
+    padding-top: 2px;
+    padding-bottom: 1.5px;
+}
+
+.spin-wrapper .up:after,
+.spin-wrapper .down:after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: #8b8b8b;
+
+}
+
+.spin-wrapper .up:after {
+    clip-path: polygon(50% 0%, 0 100%, 100% 100%);
+}
+
+.spin-wrapper .down:after {
+    clip-path: polygon(50% 100%, 0 0, 100% 0);
+}
+
+
+/* **********************************************************************************************************************
+* description	    : 	북마크 아이콘
+*********************************************************************************************************************** */
+.favorite-button {
+    width: 30px;
+    height: 30px;
+    --background-default: #313440;
+    --text-color-default: #FAFBFF;
+    --star-color-default: #62677C;
+    --star-face-color-default: #1F2128;
+    --star-color-active: #F6C206;
+    --star-face-color-active: #845901;
+    --star-hole: #16181E;
+    --star-hole-inner: #20232C;
+    --button-y: 0px;
+    --star-y: 0px;
+    --star-scale: 1.2;
+    --star-rotate: 0deg;
+    --star-hole-scale: 0;
+    --star-face-scale: 1;
+    --text-x: 0px;
+    --text-o: 1;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-appearance: none;
+    outline: none;
+    border: none;
+    background: none;
+    min-width: 0;
+    padding: 5px;
+    margin: 0;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    color: var(--text-color-default);
+    transform: translateY(var(--button-y)) translateZ(0);
+
+    &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 4px;
+        transition: transform .2s;
+        transform: scale(var(--background-scale-x, 1), var(--background-scale-y, 1)) translateZ(0);
+        background: var(--background-default);
+    }
+
+    &:active {
+        --background-scale-x: .98;
+        --background-scale-y: .96;
+    }
+
+    span {
+        display: block;
+        opacity: var(--text-o);
+        transform: translateX(var(--text-x));
+    }
+
+    .icon {
+        width: 36px;
+        height: 119px;
+        display: flex;
+        pointer-events: none;
+        position: relative;
+        clip-path: ellipse(150% 50% at 50% 50%);
+        margin: -100px 2px 0 -8px;
+
+        &:before {
+            content: '';
+            margin-top: auto;
+            display: block;
+            width: 36px;
+            height: 12px;
+            background: var(--star-hole);
+            box-shadow: inset 0 3px 0 0 var(--star-hole-inner);
+            border-radius: 100px / 30px;
+            transform: scale(var(--star-hole-scale));
+            transform-origin: 50% 100%;
+        }
+
+        .star {
+            width: 20px;
+            height: 19px;
+            position: absolute;
+            left: 8px;
+            bottom: 0;
+            transform: translateY(var(--star-y)) rotate(var(--star-rotate)) scale(var(--star-scale));
+            border-radius: var(--star-radius, 0px);
+            background: var(--star-color, var(--star-color-default));
+            clip-path: var(--star-clip, polygon(10px 0, 13px 6px, 20px 7px, 15px 12px, 16px 19px, 10px 15px, 4px 19px, 5px 12px, 0 7px, 7px 6px));
+            transition: clip-path .2s, border-radius .2s, background .2s;
+
+            &:before,
+            &:after {
+                content: '';
+                position: absolute;
+                background: var(--star-face-color, var(--star-face-color-default));
+                transition: background .2s, box-shadow .2s;
+            }
+
+            &:before {
+                width: 2px;
+                height: 2px;
+                border-radius: 50%;
+                left: 7px;
+                top: 8px;
+                box-shadow: 4px 0 0 0 var(--star-face-color, var(--star-face-color-default));
+                transform: scaleY(var(--star-face-scale));
+            }
+
+            &:after {
+                width: 4px;
+                height: 2px;
+                border-radius: var(--star-face-radius, 2px 2px 0 0);
+                left: 8px;
+                top: 11px;
+                transition: border-radius .2s;
+            }
+        }
+    }
+
+    &.star-round {
+        --star-clip: polygon(10px 0, 20px 0, 20px 7px, 20px 12px, 20px 19px, 10px 19px, 0 19px, 0 12px, 0 7px, 0 0);
+        --star-radius: 50%;
+    }
+
+    &.active {
+        --star-color: var(--star-color-active);
+        --star-face-color: var(--star-face-color-active);
+        --star-face-radius: 0 0 2px 2px;
+    }
+}
+
+/* **********************************************************************************************************************
+* description	    : 	폰트어썸 로컬 아이콘
+*********************************************************************************************************************** */
+i.icon {
+    /* opacity: 0.7; */
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    display: inline-block;
+}
+
+i.star-solid {
+    background-image: url("/asset/image/star-solid.svg");
+}
+
+i.arrows-left-right-to-line-solid {
+    background: url("/asset/image/arrows-left-right-to-line-solid.svg");
+}
+
+i.bolt-solid {
+    background-image: url("/asset/image/bolt-solid.svg");
+}
+
+i.book-solid {
+    background-image: url("/asset/image/book-solid.svg");
+}
+
+i.calendar-check-solid {
+    background-image: url("/asset/image/calendar-check-solid.svg");
+}
+
+i.chart-simple-solid {
+    background-image: url("/asset/image/chart-simple-solid.svg");
+}
+
+i.feather-pointed-solid {
+    background-image: url("/asset/image/feather-pointed-solid.svg");
+}
+
+i.fire-solid {
+    background-image: url("/asset/image/fire-solid.svg");
+}
+
+i.flask-solid {
+    background-image: url("/asset/image/flask-solid.svg");
+}
+
+i.gem-solid {
+    background-image: url("/asset/image/gem-solid.svg");
+}
+
+i.lightbulb-solid {
+    background-image: url("/asset/image/lightbulb-solid.svg");
+}
+
+i.medal-solid {
+    background-image: url("/asset/image/medal-solid.svg");
+}
+
+i.ring-solid {
+    background-image: url("/asset/image/ring-solid.svg");
+}
+
+i.star-solid {
+    background-image: url("/asset/image/star-solid.svg");
+}
+
+i.arrows-rotate-solid {
+    background-image: url("/asset/image/arrows-rotate-solid.svg");
+}
+
+i.wand-magic-sparkles-solid {
+    background-image: url("/asset/image/wand-magic-sparkles-solid.svg");
+}
+
+i.bullseye-solid {
+    background-image: url("/asset/image/bullseye-solid.svg");
+}
+
+i.person-solid {
+    background-image: url("/asset/image/person-solid.svg");
+}
+
+i.shield-halved-solid {
+    background-image: url("/asset/image/shield-halved-solid.svg");
+}
+
+i.circle-notch-solid {
+    background-image: url("/asset/image/circle-notch-solid.svg");
+}
+
+i.wand-magic-solid {
+    background-image: url("/asset/image/wand-magic-solid.svg");
+}
+
+i.hourglass-half-solid {
+    background-image: url("/asset/image/hourglass-half-solid.svg");
+}
+
+i.arrow-trend-up-solid {
+    background-image: url("/asset/image/arrow-trend-up-solid.svg");
+}
+
+i.gear-solid {
+    background-image: url("/asset/image/gear-solid.svg");
+}
+
+/* **********************************************************************************************************************
+* description	    : 	후원자 전용 뱃지
+*********************************************************************************************************************** */
+
+i.badge {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    display: inline-block;
+    vertical-align: bottom;
+    width: 24px;
+    height: 24px;
+    margin: 0 2px;
+    position: relative;
+}
+
+i.badge:hover:before {
+    content: "";
+    display: block;
+    width: 15px;
+    height: 7px;
+    background: #2f2f2f;
+    position: absolute;
+    left: 50%;
+    bottom: -7px;
+    transform: translateX(-50%);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+i.badge:hover:after {
+    display: inline-block;
+    white-space: nowrap;
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 7px);
+    transform: translateX(-50%);
+    color: #fff;
+    background: #2f2f2f;
+    padding: 5px;
+    border-radius: 4px;
+    z-index: 3;
+}
+
+i.lopec_badge_connie {
+    background-image: url("/asset/image/lopec_badge_01.png");
+}
+
+i.lopec_badge_connie:hover:after {
+    content: "감사의 마음이 듬뿍 담긴 코니뱃지!";
+}
+
+
+i.lopec_badge_blackCow {
+    background-image: url("/asset/image/lopec_badge_03.png");
+}
+
+i.lopec_badge_blackCow:hover:after {
+    content: "감사의 마음이 듬뿍 담긴 흑우뱃지!";
+}
+
+
+i.lopec_badge_doggie {
+    background-image: url("/asset/image/lopec_badge_04.png");
+}
+
+i.lopec_badge_doggie:hover:after {
+    content: "감사의 마음이 듬뿍 담긴 댕댕이뱃지!";
+}
+
+
+i.lopec_badge_mokoko {
+    background-image: url("/asset/image/lopec_badge_05.png");
+}
+
+i.lopec_badge_mokoko:hover:after {
+    content: "감사의 마음이 듬뿍 담긴 모코코뱃지!";
+}
+
+
+i.lopec_badge_pinekoko {
+    background-image: url("/asset/image/lopec_badge_06.png");
+}
+
+i.lopec_badge_pinekoko:hover:after {
+    content: "감사의 마음이 듬뿍 담긴 파인코코뱃지!";
+}
+
+
+i.lopec_badge_penguin {
+    background-image: url("/asset/image/lopec_badge_02.png");
+}
+
+i.lopec_badge_penguin:hover:after {
+    content: "감사의 마음이 듬뿍 담긴 펭바타뱃지!";
+}
+
+
+
+/* **********************************************************************************************************************
+* description	    : 	로펙딸깍
+*********************************************************************************************************************** */
+.sc-lopec-click {
+    overflow: hidden;
+    position: fixed;
+    right: 40%;
+    top: 0%;
+    z-index: 4;
+    /* background: #f00; */
+    border-radius: 30px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    transition: height 300ms, width 300ms, border-radius 600ms;
+}
+
+.sc-lopec-click.on {
+    /* height: 400px; */
+    height: 481px;
+    width: 350px;
+    border-radius: 5px;
+    overflow: visible;
+}
+
+.sc-lopec-click:before {
+    z-index: 2;
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    background: url("/asset/image/magnifying-glass-solid.svg") center center / contain no-repeat;
+    width: 30px;
+    height: 30px;
+    opacity: 1;
+    transition: opacity 300ms;
+}
+
+.sc-lopec-click.on:before {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.sc-lopec-click:after {
+    z-index: 1;
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 92%;
+    height: 92%;
+    /* background-color: #ebf7fc; */
+    background-color: #1d1e1f;
+    /* Old browsers */
+    background-image: linear-gradient(top, #87e0fd 0%, #008eed 100%);
+    /* Fallback for IE6-9 (vertical gradient) */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#87e0fd', endColorstr='#008eed', GradientType=0);
+    border-radius: 50%;
+    /* Keep this for the inner circle's roundness */
+    opacity: 1;
+    transition: background-color 300ms;
+    transition-delay: 150ms;
+    transition-property: border-radius;
+}
+
+.sc-lopec-click.on:after {
+    background-color: #ebf7fc;
+}
+
+.sc-lopec-click.on:after {
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    transition: border-radius 300ms, background-color 300ms;
+}
+
+.sc-lopec-click .blob {
+    width: 82.5%;
+    /* 30% of 80% of 200px = 48px */
+    height: 82.5%;
+    /* 30% of 80% of 200px = 48px */
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /* background-color: #ebf7fc; */
+    background-color: #1d1e1f;
+    opacity: 0.5;
+    border-radius: 15px;
+    /* 30% of 50px */
+    transform-origin: 50% 50%;
+    /* Default transform origin */
+}
+
+.sc-lopec-click.on .blob {
+    display: none;
+}
+
+.sc-lopec-click .blob1 {
+    animation: rotato 4s 0.5s linear infinite;
+    -webkit-animation: rotato 10s 0.5s linear infinite;
+    transform-origin: 50% 52%;
+    -webkit-transform-origin: 50% 52%;
+}
+
+.sc-lopec-click .blob2 {
+    animation: rotato 5s 0.2s linear infinite;
+    -webkit-animation: rotato 8s 0.2s linear infinite;
+    transform-origin: 49% 49%;
+    -webkit-transform-origin: 49% 49%;
+}
+
+.sc-lopec-click .blob3 {
+    animation: rotato 6s linear infinite reverse;
+    -webkit-animation: rotato 9s linear infinite reverse;
+    transform-origin: 48% 52%;
+    -webkit-transform-origin: 48% 52%;
+}
+
+@keyframes rotato {
+    to {
+        transform: rotate(359deg);
+    }
+}
+
+@-webkit-keyframes rotato {
+    to {
+        -webkit-transform: rotate(359deg);
+    }
+}
+
+
+.sc-lopec-click .group-category {}
+
+.sc-lopec-click.on .group-category {
+    margin-bottom: 25px;
+}
+
+.sc-lopec-click .group-category .category {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.sc-lopec-click .group-simple {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.sc-lopec-click .group-simple .search-area {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.sc-lopec-click .group-simple .search-area input {
+    width: 70%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid rgba(3, 125, 255, 0);
+    transition: border 200ms;
+}
+
+.sc-lopec-click .group-simple .search-area input:focus {
+    border: 1px solid #037dff;
+}
+
+
+.sc-lopec-click .group-simple .search-area .btn {
+    border: 1px solid #037dff;
+    background: #fff;
+    width: 15%;
+    display: flex;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.sc-lopec-click .group-simple .result-area {
+    margin-top: 15px;
+    background: #fff;
+    border-radius: 5px;
+    overflow-y: scroll;
+    /* height: 270px; */
+    height: 351px;
+}
+
+.sc-lopec-click .group-simple .result-item {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 12px 10px;
+    border-bottom: 1px solid #e8eff5;
+    transition: background 300ms;
+    gap: 5px;
+
+}
+
+.sc-lopec-click .group-simple .result-box .result-item {
+    cursor: pointer;
+}
+
+.sc-lopec-click .group-simple .sort-box .result-item {
+    /* color: #0056b3; */
+    color: #59a6e6;
+    font-weight: 600;
+}
+
+.sc-lopec-click .group-simple .result-item:hover:not(:first-child) {
+    background: #e1e1e1;
+}
+
+.sc-lopec-click .group-simple .result-item .result {
+    text-align: left;
+    font-weight: inherit;
+}
+
+.sc-lopec-click .group-simple .result-item:nth-child(4n) {
+    border-bottom: 1px solid #9e9e9e;
+}
+
+.sc-lopec-click .group-simple .result-item .name {
+    width: 87px;
+}
+
+.sc-lopec-click .group-simple .result-item .job {
+    width: 38px;
+}
+
+.sc-lopec-click .group-simple .result-item .point {
+    width: 54px
+}
+
+.sc-lopec-click .group-simple .result-item .change {
+    width: 54px;
+}
+
+.sc-lopec-click .group-simple .result-item .del {
+    text-decoration: underline;
+    width: 25px;
+    opacity: 0.5;
+    transition: opacity 300ms;
+}
+
+.sc-lopec-click .group-simple .result-item .del:hover {
+    opacity: 1;
+}
+
+.sc-lopec-click .group-auto {
+    display: none;
+}
+
+.sc-lopec-click .group-category,
+.sc-lopec-click .group-simple,
+.sc-lopec-click .group-auto {
+    display: none;
+}
+
+.sc-lopec-click .hint {
+    display: none;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    opacity: 0.3;
+    font-size: 11px;
+}
+
+.sc-lopec-click.on .hint {
+    display: block;
+}
+
+.sc-lopec-click.on .group-category,
+.sc-lopec-click.on .group-simple,
+.sc-lopec-click.on .group-auto {
+    display: flex;
+}
+
+/* **********************************************************************************************************************
+* description	    : 	로펙딸깍 유저의 정보 간단하게 보기
+*********************************************************************************************************************** */
+.sc-lopec-click .group-user-data {
+    display: none;
+    position: absolute;
+    left: 100%;
+    bottom: 0;
+    background: #fff;
+    border-radius: 8px;
+    align-content: flex-start;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.sc-lopec-click .group-user-data.on {
+    display: flex;
+}
+
+.group-user-data .name-area {
+    margin-bottom: 15px;
+}
+
+.group-user-data .name-area .name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.group-user-data .etc-area {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.group-user-data .etc-list,
+.group-user-data .ark-list {
+    display: flex;
+    gap: 20px;
+}
+
+.group-user-data .etc-item,
+.group-user-data .ark-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.group-user-data .etc-item .etc,
+.group-user-data .ark-item .name {
+    font-weight: bold;
+    font-size: 14px;
+    color: #666;
+}
+
+.group-user-data .etc-item .value,
+.group-user-data .ark-item .value {
+    font-size: 14px;
+}
+
+.group-user-data .armory-area {
+    margin-bottom: 15px;
+}
+
+.group-user-data .armory-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.group-user-data .armory-item,
+.group-user-data .accessory-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    /* Adjust item width as needed */
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.group-user-data .armory-item img,
+.group-user-data .accessory-item img {
+    width: 40px;
+    /* Adjust image size */
+    height: 40px;
+    background-color: #eee;
+    /* Placeholder for image */
+    margin-bottom: 5px;
+}
+
+.group-user-data .armory-item .normale-upgrade {
+    font-size: 12px;
+    color: #007bff;
+    /* Example color */
+}
+
+.group-user-data .armory-item .parts-name {
+    font-size: 12px;
+}
+
+.group-user-data .armory-item .advanced-upgrade {
+    font-size: 12px;
+    color: #dc3545;
+    /* Example color */
+}
+
+.group-user-data .accessory-item .accessory {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.group-user-data .accessory-item .option {
+    font-size: 11px;
+    text-wrap: nowrap;
+}
+
+.group-user-data .gem-area {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.group-user-data .gem-item {
+    background-color: #f8f8f8;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.group-user-data .gem-item img {
+    width: 30px;
+    /* Adjust image size */
+    height: 30px;
+    background-color: #ddd;
+    /* Placeholder for image */
+    margin-bottom: 5px;
+}
+
+.group-user-data .gem-item .name {
+    font-size: 11px;
+    letter-spacing: -0.2px;
+}
+
+.group-user-data .engraving-area {
+    display: flex;
+    gap: 9px;
+}
+
+.group-user-data .engraving-item {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    width: 80px;
+    /* Adjust size */
+    height: 55px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 10px;
+}
+
+.group-user-data .engraving-item img {
+    width: 20px;
+    /* Adjust image size */
+    height: 20px;
+    background-color: #ccc;
+    /* Placeholder */
+    border-radius: 50%;
+}
+
+.group-user-data .engraving-item .grade {
+    font-size: 12px;
+}
+
+.group-user-data .engraving-item .name {
+    font-size: 12px;
+}
+
+/* Specific adjustments to match the image more closely */
+.group-user-data .etc-list {
+    gap: 50px;
+    /* Adjust spacing between 엘릭서 and 초월 */
+}
+
+.group-user-data .ark-list {
+    gap: 40px;
+    /* Adjust spacing between Ark items */
+}
+
+.group-user-data .armory-list.armory {
+    grid-template-columns: repeat(6, 1fr);
+    /* Use grid for even spacing */
+    display: grid;
+}
+
+.group-user-data .armory-list.accessory {
+    grid-template-columns: repeat(6, 1fr);
+    display: grid;
+}
+
+.group-user-data .armory-list.accessory .accessory-item:last-child .accessory {
+    align-items: center;
+}
+
+
+.group-user-data .accessory-item .accessory {
+    align-items: flex-start;
+    width: 100%;
+    height: 33px;
+    overflow: hidden;
+}
+
+.group-user-data .gem-area {
+    justify-content: space-between;
+    /* Align gems to the left */
+}
+
+.group-user-data .engraving-area {
+    justify-content: flex-start;
+    /* Align engravings to the left */
+}
