@@ -1529,25 +1529,25 @@ async function simulatorInputCalc() {
         }
         let supportImportantBuffInfo = [
             { name: "공격력 증가", value: Number(originSpecPoint.supportFinalAtkBuff).toFixed(0) + compareValue(cachedDetailInfo.specPoint.supportFinalAtkBuff, originSpecPoint.supportFinalAtkBuff), icon: "bolt-solid" },
-            { name: "평균 피해량 증가", value: Number(originSpecPoint.supportAvgBuffPower).toFixed(2) + compareValue(cachedDetailInfo.specPoint.supportAvgBuffPower, originSpecPoint.supportAvgBuffPower) + "%", icon: "arrow-trend-up-solid" },
+            { name: "평균 피해량 증가", value: Number(originSpecPoint.supportAvgBuffPower).toFixed(2) + "%" + compareValue(cachedDetailInfo.specPoint.supportAvgBuffPower, originSpecPoint.supportAvgBuffPower), icon: "arrow-trend-up-solid" },
         ]
         let supportBuffInfo = [
             { name: "낙인력", value: Number(originSpecPoint.supportStigmaResult).toFixed(1) + "%" + compareValue(cachedDetailInfo.specPoint.supportStigmaResult, originSpecPoint.supportStigmaResult), icon: "bullseye-solid" },
             { name: "상시버프", value: Number(originSpecPoint.supportAllTimeBuff).toFixed(2) + "%" + compareValue(cachedDetailInfo.specPoint.supportAllTimeBuff, originSpecPoint.supportAllTimeBuff), icon: "arrows-rotate-solid" },
             { name: "풀버프", value: Number(originSpecPoint.supportFullBuff).toFixed(2) + "%" + compareValue(cachedDetailInfo.specPoint.supportFullBuff, originSpecPoint.supportFullBuff), icon: "wand-magic-solid" },
-            { name: "종합버프", value: Number(originSpecPoint.supportTotalAvgBuff).toFixed(2) + compareValue(cachedDetailInfo.specPoint.supportTotalAvgBuff, originSpecPoint.supportTotalAvgBuff) + "%", icon: "wand-magic-sparkles-solid" },
+            { name: "종합버프", value: Number(originSpecPoint.supportTotalAvgBuff).toFixed(2) + "%" + compareValue(cachedDetailInfo.specPoint.supportTotalAvgBuff, originSpecPoint.supportTotalAvgBuff), icon: "wand-magic-sparkles-solid" },
             { name: "팔찌", value: Number(originSpecPoint.supportBangleResult).toFixed(2) + "%" + compareValue(cachedDetailInfo.specPoint.supportBangleResult, originSpecPoint.supportBangleResult), icon: "ring-solid" },
         ]
         let supportUtilizationRate = [
-            { name: "아덴 가동률", value: Number(originSpecPoint.supportIdentityUptime).toFixed(2) + compareValue(cachedDetailInfo.specPoint.supportIdentityUptime, originSpecPoint.supportIdentityUptime) + "%", icon: "hourglass-half-solid" },
-            { name: "초각 가동률", value: Number(originSpecPoint.supportHyperUptime).toFixed(2) + compareValue(cachedDetailInfo.specPoint.supportHyperUptime, originSpecPoint.supportHyperUptime) + "%", icon: "hourglass-half-solid" },
-            { name: "풀버프 가동률", value: Number(originSpecPoint.supportFullBuffUptime).toFixed(2) + compareValue(cachedDetailInfo.specPoint.supportFullBuffUptime, originSpecPoint.supportFullBuffUptime) + "%", icon: "hourglass-half-solid" },
+            { name: "아덴 가동률", value: Number(originSpecPoint.supportIdentityUptime).toFixed(2) + "%" + compareValue(cachedDetailInfo.specPoint.supportIdentityUptime, originSpecPoint.supportIdentityUptime), icon: "hourglass-half-solid" },
+            { name: "초각 가동률", value: Number(originSpecPoint.supportHyperUptime).toFixed(2) + "%" + compareValue(cachedDetailInfo.specPoint.supportHyperUptime, originSpecPoint.supportHyperUptime), icon: "hourglass-half-solid" },
+            { name: "풀버프 가동률", value: Number(originSpecPoint.supportFullBuffUptime).toFixed(2) + "%" + compareValue(cachedDetailInfo.specPoint.supportFullBuffUptime, originSpecPoint.supportFullBuffUptime), icon: "hourglass-half-solid" },
         ]
         let supportEffectInfo = [
             { name: "케어력", value: Number(originSpecPoint.supportCarePowerResult).toFixed(2) + "%" + compareValue(cachedDetailInfo.specPoint.supportCarePowerResult, originSpecPoint.supportCarePowerResult), icon: "shield-halved-solid" },
             { name: "유틸력", value: Number(originSpecPoint.supportUtilityPower).toFixed(2) + "%" + compareValue(cachedDetailInfo.specPoint.supportUtilityPower, originSpecPoint.supportUtilityPower), icon: "book-solid" },
-            { name: "특성", value: originSpecPoint.supportTotalStatus + compareValue(cachedDetailInfo.specPoint.supportTotalStatus, originSpecPoint.supportTotalStatus), icon: "person-solid" },
-            { name: "쿨타임 감소", value: originSpecPoint.supportgemsCoolAvg + "%" + compareValue(cachedDetailInfo.specPoint.supportgemsCoolAvg, originSpecPoint.supportgemsCoolAvg), icon: "gem-solid" },
+            { name: "특성", value: Number(originSpecPoint.supportTotalStatus).toFixed(2) + compareValue(cachedDetailInfo.specPoint.supportTotalStatus, originSpecPoint.supportTotalStatus), icon: "person-solid" },
+            { name: "쿨타임 감소", value: Number(originSpecPoint.supportgemsCoolAvg).toFixed(2) + "%" + compareValue(cachedDetailInfo.specPoint.supportgemsCoolAvg, originSpecPoint.supportgemsCoolAvg), icon: "gem-solid" },
         ]
 
         let result = "";
