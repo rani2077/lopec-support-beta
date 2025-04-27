@@ -12,17 +12,10 @@
 
 
     <link rel="icon" type="image/png" href="https://cdnlopec.xyz/asset/image/lopec-ico.png">
-    <script>
-        let baseUrl = "https://cdnlopec.xyz/asset";
-        let interValTime = 60 * 1000 * 10;
-        if (!window.location.href.includes("lopec.kr")) {
-            baseUrl = "/asset"
-        }
-        document.write('<link rel="stylesheet" href="' + baseUrl + '/css/reset.css?' + Math.floor((new Date).getTime() / interValTime) + '">');
-        document.write('<link rel="stylesheet" href="' + baseUrl + '/css/m-layout.css?' + Math.floor((new Date).getTime() / interValTime) + '">');
-        document.write('<link rel="stylesheet" href="' + baseUrl + '/css/m-common.css?' + Math.floor((new Date).getTime() / interValTime) + '">');
-        document.write('<link rel="stylesheet" href="' + baseUrl + '/css/m-main.css?' + Math.floor((new Date).getTime() / interValTime) + '">');
-    </script>
+    <link rel="stylesheet" href="/asset/css/reset.css">
+    <link rel="stylesheet" href="/asset/css/m-layout.css">
+    <link rel="stylesheet" href="/asset/css/m-common.css">
+    <link rel="stylesheet" href="/asset/css/m-main.css">
     <title>로펙 : 스펙포인트 및 환산점수</title>
 </head>
 
@@ -546,10 +539,12 @@
                         <img src="/asset/image/skeleton-img.png" class="engraving-img" alt="">
                     </div>
                 </div>
-                <div class="karma-area shadow" style="background:#fff;margin-top:20px;padding:15px;display:flex;flex-direction:column;align-items:center;gap:12px;">
+                <div class="karma-area shadow"
+                    style="background:#fff;margin-top:20px;padding:15px;display:flex;flex-direction:column;align-items:center;gap:12px;">
                     <span>진화 카르마 예상 수치</span>
                     <span>알고리즘 추정치로, 실제 값과 다를 수 있습니다.</span>
-                    <span class="karma"><em style="color:#f00;font-weight:600;">?</em>랭크 <em style="color:#f00;font-weight:600;">?</em>레벨</span>
+                    <span class="karma"><em style="color:#f00;font-weight:600;">?</em>랭크 <em
+                            style="color:#f00;font-weight:600;">?</em>레벨</span>
                     <a href="https://forms.gle/QYfYAGEmQZQ7oX7n6" target="_blank">카르마 랭크 불일치 제보</a>
                 </div>
 
