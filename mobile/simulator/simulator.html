@@ -14,6 +14,10 @@
     <link rel="stylesheet" href="/asset/css/m-common.css">
     <link rel="stylesheet" href="/asset/css/m-main.css">
     <link rel="stylesheet" href="/asset/css/m-simulator.css">
+    <script>
+        let baseUrl = "/asset";
+        let interValTime = 60 * 1000 * 10;
+    </script>
 
     <title>로펙 : 시뮬레이터</title>
 </head>
@@ -999,11 +1003,6 @@
         document.write('<script type="module" src="' + baseUrl + '/js/layout.js?' + Math.floor((new Date).getTime() / interValTime) + '"><\/script>');
         document.write('<script type="module" src="' + baseUrl + '/js/simulator.js?' + Math.floor((new Date).getTime() / interValTime) + '"><\/script>');
     </script>
-
-
-
-
-
 
 
 </body>
