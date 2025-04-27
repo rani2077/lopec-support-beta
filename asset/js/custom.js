@@ -1087,7 +1087,7 @@ async function mainSearchFunction() {
             { name: "케어력", value: Number(specPoint.supportCarePowerResult).toFixed(2) + "%", icon: "shield-halved-solid" },
             { name: "유틸력", value: Number(specPoint.supportUtilityPower).toFixed(2) /* 추가됨 */ + "%", icon: "gear-solid" },
             { name: "특성", value: specPoint.supportTotalStatus, icon: "person-solid" },
-            { name: "쿨타임 감소", value: specPoint.supportgemsCoolAvg + "%", icon: "gem-solid" },
+            { name: "쿨타임 감소", value: Number(specPoint.supportgemsCoolAvg).toFixed(2) + "%", icon: "gem-solid" },
         ]
 
         let result = "";
