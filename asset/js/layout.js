@@ -110,7 +110,7 @@ function scHeaderCreate() {
                         <div class="logo-group">
                             <h1 class="logo">
                                 <span class="blind">로스트아크 전투정보실 전투력계산 스펙포인트</span>
-                                <a href="/mobile/" class="link-site"></a>
+                                <a href="/lopec-support-beta/mobile/" class="link-site"></a>
                             </h1>
                         </div>
                         <div class="group-search">
@@ -159,7 +159,7 @@ function scHeaderCreate() {
                     <div class="logo-group">
                         <h1 class="logo">
                             <span class="blind">로스트아크 전투정보실 전투력계산 스펙포인트</span>
-                            <a href="/" class="link-site"></a>
+                            <a href="/lopec-support-beta/" class="link-site"></a>
                         </h1>
                     </div>
                     <div class="group-search">
