@@ -994,6 +994,71 @@ async function simulatorInputCalc() {
     }
 
     /* **********************************************************************************************************************
+    * function name		:	accessoryInputHealthValue
+    * description		: 	악세서리의 체력값을 htmlObj에서 가져와 합산함
+    *********************************************************************************************************************** */
+    
+    function accessoryInputHealthValue() {
+        let totalHealth = 0;
+        
+        // 악세서리 체력값 가져오기
+        if (extractValue && extractValue.htmlObj && extractValue.htmlObj.accessoryInfo) {
+            for (let i = 0; i < 5 && i < extractValue.htmlObj.accessoryInfo.length; i++) {
+                const accessory = extractValue.htmlObj.accessoryInfo[i];
+                if (accessory && typeof accessory.health === 'number') {
+                    totalHealth += accessory.health;
+                }
+            }
+        }
+        
+        // 팔찌 체력값 계산
+        const bangleStatsElements = document.querySelectorAll(".accessory-item.bangle .stats");
+        const bangleValueElements = document.querySelectorAll(".accessory-item.bangle input.option");
+        
+        let bangleInputHealth = 0;
+        bangleStatsElements.forEach((statElement, idx) => {
+            // value 값이나 텍스트 내용이 "체력"인 경우
+            if (statElement.value === "체력" || 
+                statElement.options[statElement.selectedIndex].text === "체력") {
+                bangleInputHealth += Number(bangleValueElements[idx].value || 0);
+            }
+        });
+        
+        // 원래 팔찌 체력값 계산
+        let originalBangleHealth = 0;
+        if (extractValue && extractValue.htmlObj && extractValue.htmlObj.bangleInfo && 
+            extractValue.htmlObj.bangleInfo.normalStatsArray) {
+            
+            extractValue.htmlObj.bangleInfo.normalStatsArray.forEach(statString => {
+                const healthMatch = statString.match(/체력\s*\+(\d+)/);
+                if (healthMatch && healthMatch[1]) {
+                    originalBangleHealth += parseInt(healthMatch[1], 10);
+                }
+            });
+        }
+        
+        // 최종 체력 계산: 악세서리 체력 + (새 팔찌 체력 - 원래 팔찌 체력)
+        totalHealth = totalHealth + bangleInputHealth;
+        
+        return totalHealth;
+    }
+
+    /* **********************************************************************************************************************
+    * function name        : stoneHealthValue
+    * description          : 어빌리티 스톤에서 체력 값을 추출
+    *********************************************************************************************************************** */
+    function stoneHealthValue() {
+       let stoneHealth = 0;
+       
+       // htmlObj에서 스톤 정보 확인
+       if (extractValue.htmlObj && extractValue.htmlObj.stoneInfo && extractValue.htmlObj.stoneInfo.health) {
+           stoneHealth = extractValue.htmlObj.stoneInfo.health;
+       }
+       
+       return stoneHealth;
+    }
+
+    /* **********************************************************************************************************************
     * function name		:	objKeyValueSum(objArr)
     * description		: 	악세서리 옵션의 key값이 동일한 경우 합연산 또는 곱연산
     *********************************************************************************************************************** */
@@ -1473,7 +1538,8 @@ async function simulatorInputCalc() {
         extractValue.etcObj.avatarStats = avatarPointCalc();
         extractValue.etcObj.gemsCoolAvg = extractValue.etcObj.gemsCoolAvg;
         extractValue.etcObj.supportCheck = supportCheck;
-        // extractValue.etcObj.evolutionkarmaRank = evolutionKarmaRank;
+        // 여기에 체력 값 추가
+        extractValue.etcObj.healthStatus = (armorWeaponStatsObj.healthStats + accessoryInputHealthValue() + stoneHealthValue()) * extractValue.jobObj.healthPer;
         extractValue.etcObj.gemCheckFnc.specialSkill = extractValue.etcObj.gemCheckFnc.specialSkill;
         extractValue.etcObj.gemCheckFnc.originGemValue = extractValue.etcObj.gemCheckFnc.originGemValue;
         extractValue.etcObj.gemCheckFnc.gemValue = extractValue.etcObj.gemCheckFnc.gemValue;
@@ -4607,13 +4673,12 @@ async function armoryLevelCalc(Modules) {
     }
 
     let armorObj = []
-    armorPartObjCreate(Modules.simulatorData.helmetlevels, result[0].level, result[0].special, "투구")           // 투구
-    armorPartObjCreate(Modules.simulatorData.shoulderlevels, result[1].level, result[1].special, "어깨")           // 어깨
-    armorPartObjCreate(Modules.simulatorData.toplevels, result[2].level, result[2].special, "상의")           // 상의
-    armorPartObjCreate(Modules.simulatorData.bottomlevels, result[3].level, result[3].special, "하의")           // 하의
-    armorPartObjCreate(Modules.simulatorData.gloveslevels, result[4].level, result[4].special, "장갑")           // 장갑
+    armorPartObjCreate(Modules.simulatorData.helmetlevels, result[0].level, result[0].special, "투구", Modules.simulatorData.helmetHealthLevels)           // 투구
+    armorPartObjCreate(Modules.simulatorData.shoulderlevels, result[1].level, result[1].special, "어깨", Modules.simulatorData.shoulderHealthLevels)           // 어깨
+    armorPartObjCreate(Modules.simulatorData.toplevels, result[2].level, result[2].special, "상의", Modules.simulatorData.topHealthLevels)           // 상의
+    armorPartObjCreate(Modules.simulatorData.bottomlevels, result[3].level, result[3].special, "하의", Modules.simulatorData.bottomHealthLevels)           // 하의
+    armorPartObjCreate(Modules.simulatorData.gloveslevels, result[4].level, result[4].special, "장갑", Modules.simulatorData.gloveHealthLevels)           // 장갑
 
-    // console.log("result[5].level", result[5])
     if (result[5].level < 100) {
         let tierElement = document.querySelectorAll(".armor-area .armor-item")[5].querySelector(".plus").value;
         let ellaLevelArry1 = [1100, 1200, 1300, 1400, 1500, 1600, 1650, 1665, 1680];
@@ -4632,7 +4697,7 @@ async function armoryLevelCalc(Modules) {
         armorPartObjCreate(Modules.simulatorData.weaponlevels, result[5].level, result[5].special, "무기")
     }
 
-    function armorPartObjCreate(armorData, resultObj, advancedLevel, tag) {
+    function armorPartObjCreate(armorData, resultObj, advancedLevel, tag, healthData) {
         let obj = armorData.find(part => part.level === resultObj);
         if (!obj) { return; }
         obj = { ...obj };
@@ -4644,30 +4709,61 @@ async function armoryLevelCalc(Modules) {
         } else if (advancedLevel >= 30) {
             obj.stat = Math.floor(originalStat * 1.02);
         }
+        
+        // 체력
+        if (healthData) {
+            let healthObj = healthData.find(part => part.level === resultObj);
+            if (healthObj) {
+                obj.health = healthObj.health;
+                
+                let originalHealth = obj.health;
+                if (advancedLevel === 40) {
+                    obj.health = Math.floor(originalHealth * 1.05);
+                } else if (advancedLevel >= 30) {
+                    obj.health = Math.floor(originalHealth * 1.02);
+                }
+            }
+        }
+        
         armorObj.push(obj);
     }
+    
     let armorStats = armorObj.filter(obj => !(/무기|에스더/.test(obj.name)))
     let weaponStats = armorObj.find(obj => (/무기|에스더/.test(obj.name)))
+    
     function sumStats(stats) {
         if (!Array.isArray(stats)) {
-            console.error("Error: Input is not an array.");
-            return 0; // or handle the error in a way that suits your application
+            return 0;
         }
         let totalStat = 0;
         for (const armor of stats) {
             if (typeof armor.stat !== 'number') {
-                console.error(`Error: 'stat' property is not a number in object:`, armor);
-                continue; // Skip to the next object
+                continue;
             }
             totalStat += armor.stat;
         }
         return totalStat;
+    }
+    
+    // 체력 합계
+    function sumHealth(stats) {
+        if (!Array.isArray(stats)) {
+            return 0;
+        }
+        let totalHealth = 0;
+        for (const armor of stats) {
+            if (armor.health && typeof armor.health === 'number') {
+                totalHealth += armor.health;
+            }
+        }
+        return totalHealth;
     }
 
     let returnObj = {
         armorStats: sumStats(armorStats),
         weaponStats: weaponStats.stat,
         level: armorObj,
+        healthStats: sumHealth(armorStats)
     }
     return returnObj;
 }
