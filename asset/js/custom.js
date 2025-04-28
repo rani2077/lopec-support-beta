@@ -1068,14 +1068,14 @@ async function mainSearchFunction() {
             { name: "최고 점수 달성일", value: formatDate(dataBaseResponse.achieveDate), icon: "calendar-check-solid" },
         ]
         let supportImportantBuffInfo = [
-            { name: "공격력 증가", value: Number(specPoint.supportFinalAtkBuff).toFixed(0) /* 추가됨 */, icon: "bolt-solid" },
-            { name: "평균 피해 증가", value: Number(specPoint.supportAvgBuffPower).toFixed(2) /* 추가됨 */ + "%", icon: "arrow-trend-up-solid" },
+            //{ name: "공격력 증가", value: Number(specPoint.supportFinalAtkBuff).toFixed(0) /* 추가됨 */, icon: "bolt-solid" },
+            { name: "종합 버프력", value: Number(specPoint.supportAvgBuffPower).toFixed(2) /* 추가됨 */ + "%", icon: "bolt-solid" },
         ]
         let supportBuffInfo = [
             { name: "낙인력", value: Number(specPoint.supportStigmaResult).toFixed(1) + "%", icon: "bullseye-solid" },
-            { name: "상시버프", value: Number(specPoint.supportAllTimeBuff).toFixed(2) + "%", icon: "arrows-rotate-solid" },
-            { name: "풀버프", value: Number(specPoint.supportFullBuff).toFixed(2) + "%", icon: "wand-magic-solid" },
-            { name: "종합버프", value: Number(specPoint.supportTotalAvgBuff).toFixed(2) /* 추가됨 */ + "%", icon: "wand-magic-sparkles-solid" },
+            { name: "상시버프", value: Number(specPoint.supportAllTimeBuff).toFixed(2) + "%", icon: "wand-magic-solid" },
+            { name: "풀버프", value: Number(specPoint.supportFullBuff).toFixed(2) + "%", icon: "wand-magic-sparkles-solid" },
+            //{ name: "종합버프", value: Number(specPoint.supportTotalAvgBuff).toFixed(2) /* 추가됨 */ + "%", icon: "wand-magic-sparkles-solid" },
             { name: "팔찌", value: Number(specPoint.supportBangleResult).toFixed(2) + "%", icon: "ring-solid" },
         ]
         let supportUtilizationRate = [
