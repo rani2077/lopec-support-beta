@@ -1063,8 +1063,8 @@ async function mainSearchFunction() {
 
         let supportSpecPointInfo = [
             { name: "달성 최고 점수", value: dataBaseResponse.totalSumSupport, icon: "medal-solid" },
-            { name: "현재 레벨 중앙값", value: supportMedianValue, icon: "chart-simple-solid" },
-            { name: "딜러 환산 점수", value: dealerSupportConversion.toFixed(2), icon: "arrows-left-right-to-line-solid" },
+            { name: "현재 레벨 중앙값", value : "수집 중", icon: "chart-simple-solid" }, //value: supportMedianValue
+            //{ name: "딜러 환산 점수", value: dealerSupportConversion.toFixed(2), icon: "arrows-left-right-to-line-solid" },
             { name: "최고 점수 달성일", value: formatDate(dataBaseResponse.achieveDate), icon: "calendar-check-solid" },
         ]
         let supportImportantBuffInfo = [
@@ -1084,9 +1084,9 @@ async function mainSearchFunction() {
             { name: "풀버프 가동률", value: Number(specPoint.supportFullBuffUptime).toFixed(2) /* 추가됨 */ + "%", icon: "hourglass-half-solid" },
         ]
         let supportEffectInfo = [
+            { name: "특성", value: specPoint.supportTotalStatus, icon: "person-solid" },
             { name: "케어력", value: Number(specPoint.supportCarePowerResult).toFixed(2) + "%", icon: "shield-halved-solid" },
             { name: "유틸력", value: Number(specPoint.supportUtilityPower).toFixed(2) /* 추가됨 */ + "%", icon: "gear-solid" },
-            { name: "특성", value: specPoint.supportTotalStatus, icon: "person-solid" },
             { name: "쿨타임 감소", value: Number(specPoint.supportgemsCoolAvg).toFixed(2) + "%", icon: "gem-solid" },
         ]
 

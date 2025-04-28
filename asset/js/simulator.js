@@ -1117,7 +1117,7 @@ async function simulatorInputCalc() {
         if (!(cachedData.ArmoryGem.Gems == null) && supportCheck == "서폿") {
 
             cachedData.ArmoryGem.Gems.forEach(function (gem) {
-                let atkBuff = ['천상의 축복', '천상의 연주', '묵법 : 해그리기']
+                let atkBuff = ['천상의 축복', '신의 분노', '음파 진동', '천상의 연주', '묵법 : 해그리기', '묵법 : 해우물']
                 let damageBuff = ['신성의 오라', '세레나데 스킬', '음양 스킬']
                 let gemInfo = JSON.parse(gem.Tooltip)
                 let type = gemInfo.Element_000.value
@@ -1192,6 +1192,7 @@ async function simulatorInputCalc() {
             evolutionBuff: 0,
             stigmaPer: 0,
             leapDamage: 0,
+            leapBuff: 0,
             cdrPercent: 0,
         }
         let enlightElement = Number(document.querySelector(".ark-area .title-box.enlightenment .title").textContent);
@@ -1320,22 +1321,31 @@ async function simulatorInputCalc() {
 
         if (leapElement >= 70) { // leapElement == 도약 수치
             result.leapDamage += 1.15
+            result.leapBuff += 1.051
         } else if (leapElement >= 68) {
             result.leapDamage += 1.14
+            result.leapBuff += 1.049
         } else if (leapElement >= 66) {
             result.leapDamage += 1.13
+            result.leapBuff += 1.048
         } else if (leapElement >= 64) {
             result.leapDamage += 1.12
+            result.leapBuff += 1.047
         } else if (leapElement >= 62) {
             result.leapDamage += 1.11
+            result.leapBuff += 1.046
         } else if (leapElement >= 60) {
             result.leapDamage += 1.10
+            result.leapBuff += 1.045
         } else if (leapElement >= 50) {
             result.leapDamage += 1.05
+            result.leapBuff += 1.035
         } else if (leapElement >= 40) {
             result.leapDamage += 1.03
+            result.leapBuff += 1.035
         } else {
             result.leapDamage += 1
+            result.leapBuff += 1
         }
 
         result.weaponAtkPer = karmaRankToValue();
@@ -1659,14 +1669,14 @@ async function simulatorInputCalc() {
             ]
         }
         let supportImportantBuffInfo = [
-            { name: "공격력 증가", value: Number(originSpecPoint.supportFinalAtkBuff).toFixed(0) + compareValue(cachedDetailInfo.specPoint.supportFinalAtkBuff, originSpecPoint.supportFinalAtkBuff), icon: "bolt-solid" },
-            { name: "평균 피해량 증가", value: Number(originSpecPoint.supportAvgBuffPower).toFixed(2) + "%" + compareValue(cachedDetailInfo.specPoint.supportAvgBuffPower, originSpecPoint.supportAvgBuffPower), icon: "arrow-trend-up-solid" },
+            //{ name: "공격력 증가", value: Number(originSpecPoint.supportFinalAtkBuff).toFixed(0) + compareValue(cachedDetailInfo.specPoint.supportFinalAtkBuff, originSpecPoint.supportFinalAtkBuff), icon: "bolt-solid" },
+            { name: "종합 버프력", value: Number(originSpecPoint.supportAvgBuffPower).toFixed(2) + "%" + compareValue(cachedDetailInfo.specPoint.supportAvgBuffPower, originSpecPoint.supportAvgBuffPower), icon: "bolt-solid" },
         ]
         let supportBuffInfo = [
             { name: "낙인력", value: Number(originSpecPoint.supportStigmaResult).toFixed(1) + "%" + compareValue(cachedDetailInfo.specPoint.supportStigmaResult, originSpecPoint.supportStigmaResult), icon: "bullseye-solid" },
-            { name: "상시버프", value: Number(originSpecPoint.supportAllTimeBuff).toFixed(2) + "%" + compareValue(cachedDetailInfo.specPoint.supportAllTimeBuff, originSpecPoint.supportAllTimeBuff), icon: "arrows-rotate-solid" },
-            { name: "풀버프", value: Number(originSpecPoint.supportFullBuff).toFixed(2) + "%" + compareValue(cachedDetailInfo.specPoint.supportFullBuff, originSpecPoint.supportFullBuff), icon: "wand-magic-solid" },
-            { name: "종합버프", value: Number(originSpecPoint.supportTotalAvgBuff).toFixed(2) + "%" + compareValue(cachedDetailInfo.specPoint.supportTotalAvgBuff, originSpecPoint.supportTotalAvgBuff), icon: "wand-magic-sparkles-solid" },
+            { name: "상시버프", value: Number(originSpecPoint.supportAllTimeBuff).toFixed(2) + "%" + compareValue(cachedDetailInfo.specPoint.supportAllTimeBuff, originSpecPoint.supportAllTimeBuff), icon: "wand-magic-solid" },
+            { name: "풀버프", value: Number(originSpecPoint.supportFullBuff).toFixed(2) + "%" + compareValue(cachedDetailInfo.specPoint.supportFullBuff, originSpecPoint.supportFullBuff), icon: "wand-magic-sparkles-solid" },
+            //{ name: "종합버프", value: Number(originSpecPoint.supportTotalAvgBuff).toFixed(2) + "%" + compareValue(cachedDetailInfo.specPoint.supportTotalAvgBuff, originSpecPoint.supportTotalAvgBuff), icon: "wand-magic-sparkles-solid" },
             { name: "팔찌", value: Number(originSpecPoint.supportBangleResult).toFixed(2) + "%" + compareValue(cachedDetailInfo.specPoint.supportBangleResult, originSpecPoint.supportBangleResult), icon: "ring-solid" },
         ]
         let supportUtilizationRate = [
@@ -1675,9 +1685,9 @@ async function simulatorInputCalc() {
             { name: "풀버프 가동률", value: Number(originSpecPoint.supportFullBuffUptime).toFixed(2) + "%" + compareValue(cachedDetailInfo.specPoint.supportFullBuffUptime, originSpecPoint.supportFullBuffUptime), icon: "hourglass-half-solid" },
         ]
         let supportEffectInfo = [
+            { name: "특성", value: originSpecPoint.supportTotalStatus + compareValue(cachedDetailInfo.specPoint.supportTotalStatus, originSpecPoint.supportTotalStatus), icon: "person-solid" },
             { name: "케어력", value: Number(originSpecPoint.supportCarePowerResult).toFixed(2) + "%" + compareValue(cachedDetailInfo.specPoint.supportCarePowerResult, originSpecPoint.supportCarePowerResult), icon: "shield-halved-solid" },
             { name: "유틸력", value: Number(originSpecPoint.supportUtilityPower).toFixed(2) + "%" + compareValue(cachedDetailInfo.specPoint.supportUtilityPower, originSpecPoint.supportUtilityPower), icon: "book-solid" },
-            { name: "특성", value: originSpecPoint.supportTotalStatus + compareValue(cachedDetailInfo.specPoint.supportTotalStatus, originSpecPoint.supportTotalStatus), icon: "person-solid" },
             { name: "쿨타임 감소", value: Number(originSpecPoint.supportgemsCoolAvg).toFixed(2) + "%" + compareValue(cachedDetailInfo.specPoint.supportgemsCoolAvg, originSpecPoint.supportgemsCoolAvg), icon: "gem-solid" },
         ]
 
