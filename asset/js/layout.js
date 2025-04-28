@@ -67,7 +67,7 @@ function userDeviceToRedirection() {
     let queryString = window.location.search;
     if (mobileCheck) {    //모바일
         if (!currentPath.startsWith('/mobile')) {
-            window.location.href = window.location.origin + '/mobile' + currentPath + queryString;
+            window.location.href = window.location.origin + "/lopec-support-beta" + '/mobile' + currentPath + queryString;
         }
     } else {
         if (currentPath.startsWith('/mobile')) {
