@@ -62,20 +62,59 @@ let Modules = await importModuleManager();
 * useDevice         : 	모두 사용
 *********************************************************************************************************************** */
 function userDeviceToRedirection() {
-    // console.log("현재 URL: " + window.location.pathname);
-    let currentPath = window.location.pathname;
-    let queryString = window.location.search;
-    if (mobileCheck) {    //모바일
-        if (!currentPath.startsWith('/mobile')) {
-            window.location.href = window.location.origin + '/mobile' + currentPath + queryString;
+    const basePath = "/lopec-support-beta";
+    const mobileSegment = "/mobile";
+    const currentFullPath = window.location.pathname;
+    const queryString = window.location.search;
+    const origin = window.location.origin;
+
+    console.log("현재 URL:", currentFullPath);
+    console.log("모바일 확인:", mobileCheck); // mobileCheck 값 확인
+
+    const mobilePathPrefix = basePath + mobileSegment;
+
+    if (mobileCheck) { // 모바일
+        if (!currentFullPath.startsWith(mobilePathPrefix)) {
+            let remainingPath = "";
+            if (currentFullPath.length >= basePath.length) { 
+                remainingPath = currentFullPath.substring(basePath.length); 
+            }
+            if (remainingPath.length > 0 && !remainingPath.startsWith('/')) {
+                remainingPath = '/' + remainingPath;
+            } else if (remainingPath.length === 0 || remainingPath === '/') { 
+                remainingPath = '/';
+            }
+
+
+            const newUrl = origin + mobilePathPrefix + remainingPath + queryString;
+            console.log("모바일 리다이렉션 시도:", newUrl);
+            window.location.href = newUrl;
+        } else {
+             console.log("이미 모바일 경로입니다:", currentFullPath);
         }
-    } else {
-        if (currentPath.startsWith('/mobile')) {
-            window.location.href = window.location.origin + currentPath.replace('/mobile', '') + queryString;
+    } else { // 데스크톱
+        if (currentFullPath.startsWith(mobilePathPrefix)) {
+            let remainingPath = "";
+            if (currentFullPath.length > mobilePathPrefix.length) {
+                remainingPath = currentFullPath.substring(mobilePathPrefix.length); 
+            }
+            if (remainingPath.length > 0 && !remainingPath.startsWith('/')) {
+                remainingPath = '/' + remainingPath;
+            } else if (remainingPath.length === 0 || remainingPath === '/') { 
+                 remainingPath = '/'; 
+            }
+
+
+            const newUrl = origin + basePath + remainingPath + queryString;
+            console.log("데스크톱 리다이렉션 시도:", newUrl);
+            window.location.href = newUrl;
+        } else {
+            console.log("이미 데스크톱 경로입니다:", currentFullPath);
         }
     }
 }
-userDeviceToRedirection()
+
+userDeviceToRedirection();
 
 
 /* **********************************************************************************************************************
