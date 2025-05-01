@@ -70,7 +70,7 @@ export var insertLopecCharacters = function (lchaCharacterNickname, lchaCharacte
 			, totalSumSupport: lchaTotalsumSupport
 			, allTimeBuff: lchaAlltimebuff
 			, fullBuff: lchaFullbuff
-			, karma: "0"
+			, karma: null
 			, version: "2.0"
 		}
 

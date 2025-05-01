@@ -69,16 +69,6 @@ async function mainSearchFunction() {
     * function name		:	
     * description       : 	
     *********************************************************************************************************************** */
-    // let data = await Modules.fetchApi.lostarkApiCall(nameParam);
-    // let extractValue = await Modules.transValue.getCharacterProfile(data);
-    // let specPoint = await Modules.calcValue.specPointCalc(extractValue);
-    // let dataBaseResponse = await component.dataBaseWrite(data, extractValue, specPoint);
-    // if (extractValue.etcObj.supportCheck !== "서폿" && dataBaseResponse.totalStatus !== 0) {
-    //     extractValue.defaultObj.totalStatus = dataBaseResponse.totalStatus;
-    // } else if (dataBaseResponse.totalStatusSupport !== 0) {
-    //     extractValue.defaultObj.totalStatus = dataBaseResponse.totalStatusSupport;
-    // }
-    // specPoint = await Modules.calcValue.specPointCalc(extractValue);
     let apiData = await Modules.apiCalcValue.apiCalcValue(nameParam);
     console.log("API데이터", apiData)
     let data = apiData.data;
@@ -265,6 +255,16 @@ async function mainSearchFunction() {
                     <span class="detail">${gemDealInfo}</span>
                     <i style="display:none;">${sortTag}</i>
                 </div>`
+                if (gemArray.length === (idx + 1)) {
+                    gemBox += `
+                        <div class="gem-box radius free-set">
+                            <span class="save">저 장</span>
+                            <span class="load">로 드</span>
+                            <span class="reset">리 셋</span>
+                            <span class="blind level">9</span>
+                            <i style="display:none;">3</i>
+                        </div>`
+                }
             })
             element.innerHTML = gemBox;
         } else if (gemArray.length === 0) {
@@ -277,9 +277,18 @@ async function mainSearchFunction() {
                     <i style="display:none;">1</i>
                 </div>`
             }
+            gemBox += `
+                <div class="gem-box radius free-set">
+                    <span class="save">저 장</span>
+                    <span class="load">로 드</span>
+                    <span class="reset">리 셋</span>
+                    <span class="blind level">9</span>
+                    <i style="display:none;">3</i>
+                </div>`
             element.innerHTML = gemBox;
 
         }
+        Modules.component.gemFreeSetSave(data.ArmoryGem)
 
     }
     gemAreaCreate()
@@ -1049,27 +1058,29 @@ async function mainSearchFunction() {
             gemInfo = [
                 { name: "보석 실질 딜증", value: Number((extractValue.etcObj.gemCheckFnc.etcAverageValue - 1) * 100).toFixed(2) + "%", icon: "gem-solid", question: "보석을 통해 얻은 스킬 대미지 증가량" },
                 { name: "보석 최종 딜증", value: Number((extractValue.etcObj.gemCheckFnc.etcAverageValue - 1) * 100).toFixed(2) + "%", icon: "gem-solid", question: "보석 순수 딜증 x 보정치로 인한 최종 딜증값으로, 스펙포인트에 적용되는 값" },
-                { name: "보석 쿨감", value: Number(extractValue.etcObj.gemsCoolAvg).toFixed(2) + "%", icon: "gem-solid", question: "보석 평균 쿨감 수치" },
+                { name: "보석 쿨감", value: Number(extractValue.etcObj.gemCheckFnc.gemAvg).toFixed(2) + "%", icon: "gem-solid", question: "보석 평균 쿨감 수치" },
                 { name: "보석 보정치", value: Number(extractValue.etcObj.gemCheckFnc.specialSkill).toFixed(2), icon: "gem-solid", question: "보석에 포함되지 않는 스킬 및 효과를 보정하기 위한 계수. 직각 별로 고정값이며, 소수점 두 번째 자리까지만 표시" },
             ]
         } else {
             gemInfo = [
                 { name: "보석 실질 딜증", value: Number(extractValue.etcObj.gemCheckFnc.originGemValue).toFixed(2) + "%", icon: "gem-solid", question: "보석을 통해 얻은 스킬 대미지 증가량" },
                 { name: "보석 최종 딜증", value: Number((extractValue.etcObj.gemCheckFnc.gemValue - 1) * 100).toFixed(2) + "%", icon: "gem-solid", question: "보석 순수 딜증 x 보정치로 인한 최종 딜증값으로, 스펙포인트에 적용되는 값" },
-                { name: "보석 쿨감", value: Number(extractValue.etcObj.gemsCoolAvg).toFixed(2) + "%", icon: "gem-solid", question: "보석 평균 쿨감 수치" },
+                { name: "보석 쿨감", value: Number(extractValue.etcObj.gemCheckFnc.gemAvg).toFixed(2) + "%", icon: "gem-solid", question: "보석 평균 쿨감 수치" },
                 { name: "보석 보정치", value: Number(extractValue.etcObj.gemCheckFnc.specialSkill).toFixed(2), icon: "gem-solid", question: "보석에 포함되지 않는 스킬 및 효과를 보정하기 위한 계수. 직각 별로 고정값이며, 소수점 두 번째 자리까지만 표시" },
             ]
         }
 
         let supportSpecPointInfo = [
             { name: "달성 최고 점수", value: dataBaseResponse.totalSumSupport, icon: "medal-solid" },
-            { name: "현재 레벨 중앙값", value : "수집 중", icon: "chart-simple-solid" }, //value: supportMedianValue
+            { name: "현재 레벨 중앙값", value: "수집 중", icon: "chart-simple-solid" }, //value: supportMedianValue
             //{ name: "딜러 환산 점수", value: dealerSupportConversion.toFixed(2), icon: "arrows-left-right-to-line-solid" },
             { name: "최고 점수 달성일", value: formatDate(dataBaseResponse.achieveDate), icon: "calendar-check-solid" },
         ]
         let supportImportantBuffInfo = [
             //{ name: "공격력 증가", value: Number(specPoint.supportFinalAtkBuff).toFixed(0) /* 추가됨 */, icon: "bolt-solid" },
             { name: "종합 버프력", value: Number(specPoint.supportAvgBuffPower).toFixed(2) /* 추가됨 */ + "%", icon: "bolt-solid" },
+            { name: "케어력", value: Number(specPoint.supportCarePowerResult).toFixed(2) + "%", icon: "shield-halved-solid" },
+            { name: "유틸력", value: Number(specPoint.supportUtilityPower).toFixed(2) /* 추가됨 */ + "%", icon: "gear-solid" },
         ]
         let supportBuffInfo = [
             { name: "낙인력", value: Number(specPoint.supportStigmaResult).toFixed(1) + "%", icon: "bullseye-solid" },
@@ -1083,12 +1094,10 @@ async function mainSearchFunction() {
             { name: "초각 가동률", value: Number(specPoint.supportHyperUptime).toFixed(2) /* 추가됨 */ + "%", icon: "hourglass-half-solid" },
             { name: "풀버프 가동률", value: Number(specPoint.supportFullBuffUptime).toFixed(2) /* 추가됨 */ + "%", icon: "hourglass-half-solid" },
         ]
-        let supportEffectInfo = [
-            { name: "특성", value: specPoint.supportTotalStatus, icon: "person-solid" },
-            { name: "케어력", value: Number(specPoint.supportCarePowerResult).toFixed(2) + "%", icon: "shield-halved-solid" },
-            { name: "유틸력", value: Number(specPoint.supportUtilityPower).toFixed(2) /* 추가됨 */ + "%", icon: "gear-solid" },
-            { name: "쿨타임 감소", value: Number(specPoint.supportgemsCoolAvg).toFixed(2) + "%", icon: "gem-solid" },
-        ]
+        //let supportEffectInfo = [
+        //    { name: "특성", value: specPoint.supportTotalStatus, icon: "person-solid" },
+        //    { name: "쿨타임 감소", value: Number(specPoint.supportgemsCoolAvg).toFixed(2) + "%", icon: "gem-solid" },
+        //]
 
         let result = "";
         if (mobileCheck) {
@@ -1109,7 +1118,7 @@ async function mainSearchFunction() {
             result += infoWrap("주요 버프", supportImportantBuffInfo);
             result += infoWrap("버프 정보", supportBuffInfo);
             result += infoWrap("가동률", supportUtilizationRate);
-            result += infoWrap("추가 효과", supportEffectInfo);
+            //result += infoWrap("추가 효과", supportEffectInfo);
         }
         element.innerHTML = result;
     }

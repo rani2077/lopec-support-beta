@@ -62,59 +62,20 @@ let Modules = await importModuleManager();
 * useDevice         : 	모두 사용
 *********************************************************************************************************************** */
 function userDeviceToRedirection() {
-    const basePath = "/lopec-support-beta";
-    const mobileSegment = "/mobile";
-    const currentFullPath = window.location.pathname;
-    const queryString = window.location.search;
-    const origin = window.location.origin;
-
-    console.log("현재 URL:", currentFullPath);
-    console.log("모바일 확인:", mobileCheck); // mobileCheck 값 확인
-
-    const mobilePathPrefix = basePath + mobileSegment;
-
-    if (mobileCheck) { // 모바일
-        if (!currentFullPath.startsWith(mobilePathPrefix)) {
-            let remainingPath = "";
-            if (currentFullPath.length >= basePath.length) { 
-                remainingPath = currentFullPath.substring(basePath.length); 
-            }
-            if (remainingPath.length > 0 && !remainingPath.startsWith('/')) {
-                remainingPath = '/' + remainingPath;
-            } else if (remainingPath.length === 0 || remainingPath === '/') { 
-                remainingPath = '/';
-            }
-
-
-            const newUrl = origin + mobilePathPrefix + remainingPath + queryString;
-            console.log("모바일 리다이렉션 시도:", newUrl);
-            window.location.href = newUrl;
-        } else {
-             console.log("이미 모바일 경로입니다:", currentFullPath);
+    // console.log("현재 URL: " + window.location.pathname);
+    let currentPath = window.location.pathname;
+    let queryString = window.location.search;
+    if (mobileCheck) {    //모바일
+        if (!currentPath.startsWith('/mobile')) {
+            window.location.href = window.location.origin + '/mobile' + currentPath + queryString;
         }
-    } else { // 데스크톱
-        if (currentFullPath.startsWith(mobilePathPrefix)) {
-            let remainingPath = "";
-            if (currentFullPath.length > mobilePathPrefix.length) {
-                remainingPath = currentFullPath.substring(mobilePathPrefix.length); 
-            }
-            if (remainingPath.length > 0 && !remainingPath.startsWith('/')) {
-                remainingPath = '/' + remainingPath;
-            } else if (remainingPath.length === 0 || remainingPath === '/') { 
-                 remainingPath = '/'; 
-            }
-
-
-            const newUrl = origin + basePath + remainingPath + queryString;
-            console.log("데스크톱 리다이렉션 시도:", newUrl);
-            window.location.href = newUrl;
-        } else {
-            console.log("이미 데스크톱 경로입니다:", currentFullPath);
+    } else {
+        if (currentPath.startsWith('/mobile')) {
+            window.location.href = window.location.origin + currentPath.replace('/mobile', '') + queryString;
         }
     }
 }
-
-userDeviceToRedirection();
+userDeviceToRedirection()
 
 
 /* **********************************************************************************************************************
@@ -149,12 +110,12 @@ function scHeaderCreate() {
                         <div class="logo-group">
                             <h1 class="logo">
                                 <span class="blind">로스트아크 전투정보실 전투력계산 스펙포인트</span>
-                                <a href="/lopec-support-beta/mobile/" class="link-site"></a>
+                                <a href="/mobile/" class="link-site"></a>
                             </h1>
                         </div>
                         <div class="group-search">
                             <span class="recent-close"><span class="blind">검색화면 나가기 버튼</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m12.718 4.707-1.413-1.415L2.585 12l8.72 8.707 1.413-1.415L6.417 13H20v-2H6.416l6.302-6.293z"/></svg></span>
-                            <form action="/lopec-support-beta/mobile/search/search.html" class="search-area search-page on">
+                            <form action="/mobile/search/search.html" class="search-area search-page on">
                                 <input id="headerInput" autocomplete="off" name="headerCharacterName" class="header-input character-name-search" type="text" value="" placeholder="캐릭터 검색">
                                 <button class="search-btn"></button>
                             </form>
@@ -198,11 +159,11 @@ function scHeaderCreate() {
                     <div class="logo-group">
                         <h1 class="logo">
                             <span class="blind">로스트아크 전투정보실 전투력계산 스펙포인트</span>
-                            <a href="/lopec-support-beta/" class="link-site"></a>
+                            <a href="/" class="link-site"></a>
                         </h1>
                     </div>
                     <div class="group-search">
-                        <form action="/lopec-support-beta/search/search.html" class="search-area search-page on">
+                        <form action="/search/search.html" class="search-area search-page on">
                             <input id="headerInput" autocomplete="off" name="headerCharacterName" class="header-input character-name-search" type="text" value="" placeholder="캐릭터 검색">
                             <button class="search-btn"></button>
                         </form>
@@ -311,7 +272,7 @@ function recentBookmark() {
 
         recentNameBox += `
             <div class="name-box" data-sort="recent">
-                <a href="/lopec-support-beta${mobilePath}/search/search.html?headerCharacterName=${recentNameArry}" class="name">${recentNameArry}</a>
+                <a href="${mobilePath}/search/search.html?headerCharacterName=${recentNameArry}" class="name">${recentNameArry}</a>
                 <em class="del remove"></em>
             </div>`;
     })
@@ -320,7 +281,7 @@ function recentBookmark() {
 
         bookmarkNameBox += `
         <div class="name-box" data-sort="bookmark">
-            <a href="/lopec-support-beta${mobilePath}/search/search.html?headerCharacterName=${bookmarkArry}" class="name">${bookmarkArry}</a>
+            <a href="${mobilePath}/search/search.html?headerCharacterName=${bookmarkArry}" class="name">${bookmarkArry}</a>
             <em class="star remove">☆</em>
         </div>`;
     })
@@ -1632,3 +1593,55 @@ function createTooltip() {
 }
 window.addEventListener("load", createTooltip);
 // window.body.addEventListener("change", createTooltip);
+
+/* **********************************************************************************************************************
+* function name		:	devilDamageCheck()
+* description       : 	악추피 적용 여부 체크박스의 상태를 로컬 스토리지에 저장하고 불러옵니다.
+* useDevice         : 	모두 사용 (현재 layout.js에 위치)
+*********************************************************************************************************************** */
+function devilDamageCheck() {
+    // 1. 필요한 요소 선택
+    const element = document.querySelector(".devil-box"); // 컨테이너 요소
+    // 요소가 없으면 함수 종료 (오류 방지)
+    if (!element) {
+        return;
+    }
+    const checkBox = element.querySelector("input[type='checkbox']"); // 체크박스 요소
+    // 체크박스가 없으면 함수 종료 (오류 방지)
+    if (!checkBox) {
+        return;
+    }
+
+    const storageKey = 'devilDamage'; // 로컬 스토리지 키
+
+    // 2. 페이지 로드 시 로컬 스토리지 값 확인 및 체크박스 상태 설정
+    const savedState = localStorage.getItem(storageKey);
+    if (savedState === 'true') {
+        checkBox.checked = true; // 저장된 값이 'true' 문자열이면 체크 상태로 설정
+    } else {
+        checkBox.checked = false; // 그 외의 경우 (null, 'false' 등) 체크 해제 상태로 설정
+    }
+
+    // 3. 체크박스 상태 변경 시 로컬 스토리지에 저장하는 이벤트 리스너 추가
+    const alertShownKey = 'devilDamageAlertShown'; // 로컬 스토리지 키 (알림 표시 여부)
+    checkBox.addEventListener("change", () => {
+        // 3-1. 알림이 이미 표시되었는지 확인
+        const alertShown = localStorage.getItem(alertShownKey);
+
+        if (alertShown !== 'true') {
+            // 3-2. 알림이 표시되지 않았다면 알림 표시 및 플래그 저장
+            alert("악추피 체크/해제시 자동으로 새로고침이 진행됩니다.\n시뮬레이터에서도 정상작동하니 사전에 체크/해제 해주세요.\n※본 메시지는 최초 1회만 표시됩니다.");
+            localStorage.setItem(alertShownKey, 'true');
+        }
+
+        // 3-3. 체크박스의 현재 상태를 로컬 스토리지에 저장
+        localStorage.setItem(storageKey, checkBox.checked);
+        // console.log(`로컬 스토리지 '${storageKey}' 저장됨: ${checkBox.checked}`); // 확인용 로그
+
+        // 3-4. 페이지 새로고침
+        location.reload();
+    });
+}
+
+// 함수 실행하여 기능 활성화
+devilDamageCheck();
