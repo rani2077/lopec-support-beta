@@ -1005,10 +1005,10 @@ let bangleFilter = [
     { name: "무기 공격력이", option: "8100", tier: "DuelPmiddle", initial: "무공 8100 증가 | 조건부 무공 2200 증가", weaponAtkPlus: 10300 },
     { name: "무기 공격력이", option: "9000", tier: "DuelPhigh", initial: "무공 9000 증가 | 조건부 무공 2400 증가", weaponAtkPlus: 11400 },
 
-    { name: "무기 공격력이", option: "6000", tier: "Duellow1", initial: "무공 6000 증가 | 스택당 무공 120 증가", weaponAtkPlus: 7020 },
-    { name: "무기 공격력이", option: "6900", tier: "Duellow2", initial: "무공 6900 증가 | 스택당 무공 130 증가", weaponAtkPlus: 8005 },
-    { name: "무기 공격력이", option: "7800", tier: "Duelmiddle", initial: "무공 7800 증가 | 스택당 무공 140 증가", weaponAtkPlus: 8990 },
-    { name: "무기 공격력이", option: "8700", tier: "Duelhigh", initial: "무공 8700 증가 | 스택당 무공 150 증가", weaponAtkPlus: 9975 },
+    { name: "무기 공격력이", option: "6000", tier: "Duellow1", initial: "무공 6000 증가 | 스택당 무공 120 증가", weaponAtkPlus: 6000, weaponAtkBonus: 1020 },
+    { name: "무기 공격력이", option: "6900", tier: "Duellow2", initial: "무공 6900 증가 | 스택당 무공 130 증가", weaponAtkPlus: 6900, weaponAtkBonus: 1105 },
+    { name: "무기 공격력이", option: "7800", tier: "Duelmiddle", initial: "무공 7800 증가 | 스택당 무공 140 증가", weaponAtkPlus: 7800, weaponAtkBonus: 1190 },
+    { name: "무기 공격력이", option: "8700", tier: "Duelhigh", initial: "무공 8700 증가 | 스택당 무공 150 증가", weaponAtkPlus: 8700, weaponAtkBonus: 1275 },
 
     { name: "백어택 스킬이 적에게 주는 피해가", option: "2%", tier: "low1", initial: "백어택 스킬 피해 +2.0%", finalDamagePer: 2 },
     { name: "백어택 스킬이 적에게 주는 피해가", option: "2.5%", tier: "low2", initial: "백어택 스킬 피해 +2.5%", finalDamagePer: 2.5 },
@@ -1855,7 +1855,7 @@ export let stoneCheckFilter = [
     { name: '타격의 대가', level: 4, finalDamagePer: 6, criticalChancePer: 0, criticalDamagePer: 0, atkPer: 0, atkSpeed: 0, moveSpeed: 0, engBonusPer: 0, cdrPercent: 0, awakencdrPercent: 0, carePower: 0, utilityPower: 0 },
 
     { name: '공격속도 감소', level: -1, engBonusPer: 0, finalDamagePer: 0, criticalChancePer: 0, criticalDamagePer: 0, atkPer: 0, atkSpeed: -2, moveSpeed: 0, carePower: 0, cdrPercent: 0, awakencdrPercent: 0, utilityPower: 0 },
-    { name: '공격속도 감소', level: -2, engBonusPer: 0, finalDamagePer: 0, criticalChancePer: 0, criticalDamagePer: 0, atkPer: 0, atkSpeed: -4, moveSpeed: 0, carePower: 0, cdrPercent: 0, awakencdrPercent: 0, utilityPower: 0  },
+    { name: '공격속도 감소', level: -2, engBonusPer: 0, finalDamagePer: 0, criticalChancePer: 0, criticalDamagePer: 0, atkPer: 0, atkSpeed: -4, moveSpeed: 0, carePower: 0, cdrPercent: 0, awakencdrPercent: 0, utilityPower: 0 },
     { name: '공격속도 감소', level: -3, engBonusPer: 0, finalDamagePer: 0, criticalChancePer: 0, criticalDamagePer: 0, atkPer: 0, atkSpeed: -6, moveSpeed: 0, carePower: 0, cdrPercent: 0, awakencdrPercent: 0, utilityPower: 0 },
 
     { name: '이동속도 감소', level: -1, engBonusPer: 0, finalDamagePer: 0, criticalChancePer: 0, criticalDamagePer: 0, atkPer: 0, atkSpeed: 0, moveSpeed: -2, carePower: 0, cdrPercent: 0, awakencdrPercent: 0, utilityPower: 0 },
@@ -1912,10 +1912,10 @@ export let stoneCheckFilter = [
     { name: '폭발물 전문가', level: 3, engBonusPer: 0.4, criticalChancePer: 0, criticalDamagePer: 0, atkPer: 0, atkSpeed: 0, moveSpeed: 0, finalDamagePer: 0, cdrPercent: 0, awakencdrPercent: 0, utilityPower: 0, carePower: 0 },
     { name: '폭발물 전문가', level: 4, engBonusPer: 0.5, criticalChancePer: 0, criticalDamagePer: 0, atkPer: 0, atkSpeed: 0, moveSpeed: 0, finalDamagePer: 0, cdrPercent: 0, awakencdrPercent: 0, utilityPower: 0, carePower: 0 },
 
-    { name: '구슬동자', level: 1, engBonusPer: 0.9, criticalChancePer: 0, criticalDamagePer: 0, atkPer: 0, atkSpeed: 0, moveSpeed: 0, finalDamagePer: 0, cdrPercent: 0, awakencdrPercent: 0, utilityPower: 0.2, carePower: 0 },
-    { name: '구슬동자', level: 2, engBonusPer: 1.1, criticalChancePer: 0, criticalDamagePer: 0, atkPer: 0, atkSpeed: 0, moveSpeed: 0, finalDamagePer: 0, cdrPercent: 0, awakencdrPercent: 0, utilityPower: 0.3, carePower: 0 },
-    { name: '구슬동자', level: 3, engBonusPer: 1.3, criticalChancePer: 0, criticalDamagePer: 0, atkPer: 0, atkSpeed: 0, moveSpeed: 0, finalDamagePer: 0, cdrPercent: 0, awakencdrPercent: 0, utilityPower: 0.4, carePower: 0 },
-    { name: '구슬동자', level: 4, engBonusPer: 1.5, criticalChancePer: 0, criticalDamagePer: 0, atkPer: 0, atkSpeed: 0, moveSpeed: 0, finalDamagePer: 0, cdrPercent: 0, awakencdrPercent: 0, utilityPower: 0.5, carePower: 0 },
+    { name: '구슬동자', level: 1, engBonusPer: 0.9, criticalChancePer: 0, criticalDamagePer: 0, atkPer: 0, atkSpeed: 0, moveSpeed: 0, finalDamagePer: 0, cdrPercent: 0, awakencdrPercent: 0, utilityPower: 17, carePower: 0 },
+    { name: '구슬동자', level: 2, engBonusPer: 1.1, criticalChancePer: 0, criticalDamagePer: 0, atkPer: 0, atkSpeed: 0, moveSpeed: 0, finalDamagePer: 0, cdrPercent: 0, awakencdrPercent: 0, utilityPower: 19, carePower: 0 },
+    { name: '구슬동자', level: 3, engBonusPer: 1.3, criticalChancePer: 0, criticalDamagePer: 0, atkPer: 0, atkSpeed: 0, moveSpeed: 0, finalDamagePer: 0, cdrPercent: 0, awakencdrPercent: 0, utilityPower: 21, carePower: 0 },
+    { name: '구슬동자', level: 4, engBonusPer: 1.5, criticalChancePer: 0, criticalDamagePer: 0, atkPer: 0, atkSpeed: 0, moveSpeed: 0, finalDamagePer: 0, cdrPercent: 0, awakencdrPercent: 0, utilityPower: 23, carePower: 0 },
 ]
 
 
